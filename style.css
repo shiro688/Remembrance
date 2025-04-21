@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #1a0826;
+    color: #ffc4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    border: 2px solid #ffc4ec;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 20px #ff80bf;
+    max-width: 600px;
+    width: 90%;
+    z-index: 1;
+    position: relative;
+}
+
+.bg-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 12px #ff69b4;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    color: #ffe1f0;
+}
+
+p {
+    font-size: 1rem;
+    margin: 0.2rem;
+}
+
+#counter {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffb6d9;
+}
+
+.love-note {
+    margin-top: 1.5rem;
+}
+
+.love-note a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 192, 203, 0.1);
+    border: 2px solid #ffc4ec;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    color: #ffd1e8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #ff80bf;
+    backdrop-filter: blur(4px);
+}
+
+.love-note a:hover {
+    background-color: rgba(255, 192, 203, 0.3);
+}
+
+.letter-text {
+    white-space: pre-line;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ffd1e8;
+    margin-bottom: 2rem;
+}
+
+.back {
+    text-decoration: none;
+    color: #ffc4ec;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.back:hover {
+    color: #ff99cc;
+}
+
+.bg-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.slider {
+    position: relative;
+}
+
+.letter-slide {
+    display: none;
+    white-space: pre-line;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ffd1e8;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.letter-slide.active {
+    display: block;
+}
+
+.slider-controls {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.slider-controls button {
+    background-color: rgba(255, 192, 203, 0.1);
+    border: 2px solid #ffc4ec;
+    color: #ffd1e8;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #ff80bf;
+    backdrop-filter: blur(4px);
+}
+
+.slider-controls button:hover {
+    background-color: rgba(255, 192, 203, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Volume Control Container */
+.volume-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    border: 2px solid #ffc4ec;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.4); /* Transparent background to match theme */
+    box-shadow: 0 0 15px #ff80bf; /* Soft pink glow */
+}
+
+/* Volume Control Label */
+.volume-control::before {
+    content: "Volume";
+    font-size: 1rem;
+    color: #ffc4ec;
+    text-align: center;
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+/* Slider Track (background gradient) */
+#volumeSlider {
+    width: 120px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: linear-gradient(to right, #9b1d49, #7a104b, #4f0031); /* Default dark gradient */
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+/* Slider Thumb */
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #ff80bf; /* Soft pink */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(255, 192, 203, 0.6); /* Slight glow effect */
+}
+
+/* For Firefox */
+#volumeSlider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #ff80bf; /* Soft pink */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(255, 192, 203, 0.6); /* Slight glow effect */
+}
+
+/* Slider Hover Effect */
+#volumeSlider:hover {
+    background: linear-gradient(to right, #9b1d49, #7a104b, #4f0031); /* Maintain darker gradient on hover */
+}
+
+/* Slider Focus Effect */
+#volumeSlider:focus {
+    outline: none;
+    background: linear-gradient(to right, #9b1d49, #7a104b, #4f0031); /* Maintain darker gradient when focused */
+}
